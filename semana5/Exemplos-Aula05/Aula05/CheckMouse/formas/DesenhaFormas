@@ -1,0 +1,22 @@
+public class DesenhaFormas extends JPanel
+{
+private JRadioButton btnFormas[]; // color menu items  
+private ButtonGroup formasButtonGroup; // manages color menu items
+private JPanel painel;
+
+public DesenhaFormas(){
+	String strFormas[]={"Quadrado","Triangulo","Oval"};
+	btnFormas = new JRadioButtonMenuItem[ strFormas.length ];
+    formasButtonGroup = new ButtonGroup(); // manages colors
+    FormasHandler formaHandler = new FormasHandler(); // handler for colors
+	painel =  new JPanel();
+	
+	for ( int count = 0 ; count < strFormas.length; count++ )
+      {
+         btnFormas[ count ] =                                          
+            new JRadioButton( strFormas[ count ] ); // create item    
+         painel.add( btnFormas[ count ] ); // add item to color menu
+         formasButtonGroup.add( btnFormas[ count ] ); // add to group   
+         btnFormas[ count ].addActionListener( formaHandler );
+      } // end for
+}
